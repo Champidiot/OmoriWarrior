@@ -268,9 +268,9 @@ GameObject:
   - component: {fileID: 555911743}
   - component: {fileID: 555911745}
   - component: {fileID: 555911744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coup_Couteau
-  m_TagString: Untagged
+  m_TagString: couteau
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,7 +397,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -506,9 +506,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 770874311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attacks
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -573,8 +573,9 @@ GameObject:
   - component: {fileID: 970163784}
   - component: {fileID: 970163787}
   - component: {fileID: 970163786}
+  - component: {fileID: 970163788}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,6 +669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   player: {fileID: 1076427808}
   speed: 3
+  EnemyHp1: 20
+  damageCooldown: 0.5
 --- !u!61 &970163787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -714,6 +717,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &970163788
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970163783}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1045913963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1118,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1618121836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618121838}
+  - component: {fileID: 1618121837}
+  m_Layer: 0
+  m_Name: EnemySpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1618121837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618121836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7991539cc4ab83458af457390434047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Enemy1Prefab: {fileID: 970163783}
+  positionJoueur: {fileID: 1076427808}
+--- !u!4 &1618121838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618121836}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.79897, y: -0.3611, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1095,3 +1171,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 833571595}
   - {fileID: 970163785}
+  - {fileID: 1618121838}
