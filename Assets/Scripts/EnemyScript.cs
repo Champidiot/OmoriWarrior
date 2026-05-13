@@ -1,22 +1,33 @@
 using UnityEngine;
 
+
 public class EnemyScript : MonoBehaviour
 {
-    public Transform player; // Référence au transform du joueur
-    public float speed = 3f;  // Vitesse de déplacement
+    public Transform player; 
+    public float speed = 3f; 
 
     public float EnemyHp1 = 20f;
 
     public float damageCooldown = 0.12f; 
     private float nextDamageTime = 0f;
+    private float nextHeroDamageTime = 0f;
+    public float damageHeroCooldown = 0.12f;
+
+
+    [SerializeField] private Rigidbody2D rbEnemy;
 
     void Update()
 
 
     {
-        VaVersPlayer();
+        
         IsDead();
         
+    }
+
+    private void FixedUpdate()
+    {
+        VaVersPlayer();
     }
 
 
@@ -25,26 +36,17 @@ public class EnemyScript : MonoBehaviour
         return EnemyHp1;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("couteau") && Time.time >= nextDamageTime)
-        {
-            EnemyHp1 -= 5;
-            nextDamageTime = Time.time + damageCooldown;
-        }
-    }
+   
 
     private void VaVersPlayer()
-    {
-        if (player != null)
-        {
-            // Déplace l'ennemi de sa position actuelle vers celle du joueur
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                player.position,
-                speed * Time.deltaTime
-            );
-        }
+    {    
+
+            Vector2 direction = (player.position - transform.position);
+
+            direction.Normalize();
+
+            rbEnemy.linearVelocity = direction * speed;        
+        
     }
 
     private void IsDead()
@@ -54,4 +56,25 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("couteau") && Time.time >= nextDamageTime)
+        {
+            EnemyHp1 -= 5;
+            nextDamageTime = Time.time + damageCooldown;
+        }
+
+        if (collision.gameObject.CompareTag("joueur") && Time.time >= nextHeroDamageTime)
+        {
+            PlayerScript playerScri = collision.gameObject.GetComponent<PlayerScript>();
+
+            playerScri.HeroHp -= 5;
+            nextHeroDamageTime = Time.time + damageHeroCooldown;
+        }
+
+
+    }
+
 }

@@ -5,6 +5,8 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private float move_speed = 8f;
 
+    public float HeroHp = 50f;
+
 
 
 
@@ -18,6 +20,8 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         PlayerMouv();
+
+        Debug.Log(HeroHp);
     }
 
 

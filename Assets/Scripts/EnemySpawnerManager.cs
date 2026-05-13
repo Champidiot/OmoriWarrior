@@ -1,60 +1,50 @@
-using System;
-using System.Drawing;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawnerManager : MonoBehaviour
 {
 
     public static float TimerJeu;
+    public float timerEnemy;
     public GameObject Enemy1Prefab;
 
     [SerializeField] private Transform positionJoueur;
-    
+
+    private float angle;
+
+    private int roulement;
+
     void Start()
     {
         TimerJeu = 0f;
+        timerEnemy = 0f;
+
     }
 
     
     void Update()
     {
         TimerJeu += Time.deltaTime;
+        CreateEnemies1AroundPoint(positionJoueur.position, 5f);
 
-        CreateEnemiesAroundPoint(5, positionJoueur.position, 5f);
+        timerEnemy += Time.deltaTime;
+
     }
 
 
-    public void CreateEnemiesAroundPoint(int num, Vector3 point, float radius)
+    public void CreateEnemies1AroundPoint(Vector3 point, float radius)
     {
-
-        for (int i = 0; i < num; i++)
+        if (timerEnemy >= 1)
         {
+            angle = Random.Range(0f, 2 * Mathf.PI);
 
-            /* Distance around the circle */
-            var radians = 2 * MathF.PI / num * i;
+            var enemy = Instantiate(Enemy1Prefab);
+            enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
 
-            /* Get the vector direction */
-            var vertical = MathF.Sin(radians);
-            var horizontal = MathF.Cos(radians);
 
-            var spawnDir = new Vector3(horizontal, 0, vertical);
-
-            /* Get the spawn position */
-            var spawnPos = point + spawnDir * radius; // Radius is just the distance away from the point
-
-            /* Now spawn */
-            var enemy = Instantiate(Enemy1Prefab, spawnPos, quaternion.identity) as GameObject;
-
-            /* Rotate the enemy to face towards player */
-            enemy.transform.LookAt(point);
-
-            /* Adjust height */
-            enemy.transform.Translate(new Vector3(0, enemy.transform.localScale.y / 2, 0));
+            timerEnemy = 0f;
         }
+
+
     }
-
-
 
 }
