@@ -7,14 +7,18 @@ public class slash : MonoBehaviour
     private float timer;
     public float dureeActif;
     public float dureeInactif;
+    public float NiveauSlash = 1f;
     private etat etatAttack = etat.inactif;
+
+    public float slashDamage = 5f;
+
 
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private BoxCollider2D boxCol;
 
     private void Start()
     {
-        timer = 0f;     
+        timer = 0f;
     }
 
     void Update()
@@ -33,7 +37,7 @@ public class slash : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer > dureeActif)
                 {
-                    sprite.enabled=false;
+                    sprite.enabled = false;
                     boxCol.enabled = false;
                     etatAttack = etat.inactif;
                     timer = 0f;
@@ -50,13 +54,14 @@ public class slash : MonoBehaviour
                     timer = 0f;
                 }
                 break;
-        } 
+        }
 
 
     }
 
 
-    enum etat{
+    enum etat
+    {
 
         actif,
         inactif
@@ -64,8 +69,22 @@ public class slash : MonoBehaviour
     }
 
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
+        if (collision.CompareTag("enemy"))
+        {
+            EnemyScript enemy = collision.GetComponent<EnemyScript>();
+
+
+            if (enemy.nextDamageTime >= 0.13f)
+            {
+                enemy.EnemyHp1 -= slashDamage;
+
+                enemy.nextDamageTime = 0f;
+            }
+
+        }
+    }
 
 }
-

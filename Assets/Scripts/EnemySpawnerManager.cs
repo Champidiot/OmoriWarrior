@@ -24,7 +24,7 @@ public class EnemySpawnerManager : MonoBehaviour
     void Update()
     {
         TimerJeu += Time.deltaTime;
-        CreateEnemies1AroundPoint(positionJoueur.position, 5f);
+        CreateEnemies1AroundPoint(positionJoueur.position, 10f);
 
         timerEnemy += Time.deltaTime;
 
@@ -39,7 +39,7 @@ public class EnemySpawnerManager : MonoBehaviour
 
             var enemy = Instantiate(Enemy1Prefab);
             enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
-
+            enemy.SetActive(true);
 
             timerEnemy = 0f;
         }

@@ -5,23 +5,20 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private float move_speed = 8f;
 
-    public float HeroHp = 50f;
+    public float HeroHp;
+
+    public float HeroMaxHp = 50f;
 
 
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        HeroHp = HeroMaxHp; 
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerMouv();
-
-        Debug.Log(HeroHp);
     }
 
 

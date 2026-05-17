@@ -7,6 +7,7 @@ TagManager:
   - attack
   - couteau
   - joueur
+  - enemy
   layers:
   - Default
   - TransparentFX
