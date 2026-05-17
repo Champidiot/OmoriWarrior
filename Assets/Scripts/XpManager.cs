@@ -8,9 +8,18 @@ public class XpManager : MonoBehaviour
 
     public float XpObtenu;
 
+    private int NombreChoix = 5;
+
     [SerializeField] private GameObject ChoixFeunetre;
 
+    [SerializeField] private GameObject Attack;
+
     [SerializeField] private GameObject Curseur;
+
+    [SerializeField] private CarreChoix Choix1;
+
+    [SerializeField] private CarreChoix Choix2;
+
 
 
     void Start()
@@ -43,6 +52,15 @@ public class XpManager : MonoBehaviour
             ChoixFeunetre.SetActive(true);
 
             Curseur.SetActive(false);
+
+            Attack.SetActive(false);
+
+            Choix1.AmeliorationDonne = Random.Range(1, NombreChoix+1);
+
+            while(Choix2.AmeliorationDonne == 0 || Choix2.AmeliorationDonne == Choix1.AmeliorationDonne)
+            {
+                Choix2.AmeliorationDonne = Random.Range(1, NombreChoix+1);
+            }
 
 
 

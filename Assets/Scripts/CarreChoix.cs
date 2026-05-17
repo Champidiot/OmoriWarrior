@@ -9,6 +9,8 @@ public class CarreChoix : MonoBehaviour
 
     [SerializeField] private GameObject Curseur;
 
+    [SerializeField] private GameObject Attack;
+
     private void OnMouseDown()
     {
 
@@ -16,7 +18,11 @@ public class CarreChoix : MonoBehaviour
 
         Curseur.SetActive(true);
 
+        Attack.SetActive(true);
+
         Time.timeScale = 1f;
+
+        Debug.Log(AmeliorationDonne);
 
     }
 }

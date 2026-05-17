@@ -691,7 +691,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.32209995, y: -0.43444, z: 4.5799994}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3.28, y: 3.28, z: 3.28}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 770874311}
@@ -824,7 +824,6 @@ MonoBehaviour:
   XpNecessaire: 0
   XpObtenu: 0
   ChoixFeunetre: {fileID: 1045212881}
-  Attack: {fileID: 770874310}
   Curseur: {fileID: 1045913963}
   Choix1: {fileID: 2042416470}
   Choix2: {fileID: 1301090672}
@@ -1056,7 +1055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1045212882
 SpriteRenderer:
   serializedVersion: 2
@@ -1540,7 +1539,6 @@ MonoBehaviour:
   AmeliorationDonne: 0
   ChoixFeunetre: {fileID: 1045212881}
   Curseur: {fileID: 1045913963}
-  Attack: {fileID: 770874310}
 --- !u!61 &1301090673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1664,7 +1662,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.11698109, g: 0.11698109, b: 0.11698109, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2266,7 +2264,6 @@ MonoBehaviour:
   AmeliorationDonne: 0
   ChoixFeunetre: {fileID: 1045212881}
   Curseur: {fileID: 1045913963}
-  Attack: {fileID: 770874310}
 --- !u!61 &2042416471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2390,7 +2387,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.11698109, g: 0.11698109, b: 0.11698109, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -71,7 +71,7 @@ public class EnemyScript : MonoBehaviour
     {
 
 
-        if (collision.gameObject.CompareTag("joueur") && Time.time >= nextHeroDamageTime)
+        if (collision.gameObject.CompareTag("joueur") && !collision.gameObject.CompareTag("attack") && Time.time >= nextHeroDamageTime)
         {
             PlayerScript playerScri = collision.gameObject.GetComponent<PlayerScript>();
 
