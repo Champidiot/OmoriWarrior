@@ -24,8 +24,7 @@ public class YesButtonMenu : MonoBehaviour
 
         if (timer > 0.2)
         {
-            Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();  
         }
     }
 }

@@ -16,6 +16,12 @@ public class HPbar : MonoBehaviour
 
     public void HPbarMiseAjour()
     {
+
+        if (PlayerScript.HeroHp > PlayerScript.HeroMaxHp)
+        {
+           PlayerScript.HeroHp = PlayerScript.HeroMaxHp;
+        }
+
         float ScaleX = (PlayerScript.HeroHp * TailleInitial) / PlayerScript.HeroMaxHp;
 
         transform.localScale = new Vector3(ScaleX , transform.localScale.y, transform.localScale.z);

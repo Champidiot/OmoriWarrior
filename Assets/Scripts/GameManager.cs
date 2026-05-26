@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private PlayerScript playerScript;
+
+    [SerializeField] private GameObject PauseMenu;
+
     private void Update()
     {
         if(playerScript.HeroHp <= 0)
@@ -12,6 +15,12 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
 
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Time.timeScale = 0f;
+            PauseMenu.SetActive(true);
         }
     }
 }

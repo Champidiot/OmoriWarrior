@@ -26,6 +26,8 @@ public class EnemyScript : MonoBehaviour
 
     public GameObject XpPrefab;
 
+    public GameObject Food;
+
     void Update()
     {
 
@@ -75,7 +77,13 @@ public class EnemyScript : MonoBehaviour
             enemy.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             enemy.SetActive(true);
 
-
+            int IsFood = Random.Range(1, 20);
+            if (IsFood == 5)
+            {
+                var food = Instantiate(Food);
+                food.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z-1);
+                food.SetActive(true);
+            }
 
             Destroy(gameObject);
         }
