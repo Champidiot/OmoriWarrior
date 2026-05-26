@@ -7,13 +7,10 @@ public class HPbar : MonoBehaviour
 
     private float TailleInitial;
 
-    private float PositionInitial;
-
     private void Start()
     {
         TailleInitial = transform.localScale.x;
 
-        PositionInitial = transform.position.x;
     }
 
 

@@ -1,4 +1,3 @@
-using System.Drawing;
 using UnityEngine;
 
 
@@ -23,6 +22,8 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] private HPbar HPbar;
 
+    [SerializeField] private SpriteRenderer spriteRend;
+
     public GameObject XpPrefab;
 
     void Update()
@@ -37,6 +38,7 @@ public class EnemyScript : MonoBehaviour
     private void FixedUpdate()
     {
         VaVersPlayer();
+        Flip();
     }
 
 
@@ -49,6 +51,19 @@ public class EnemyScript : MonoBehaviour
 
         rbEnemy.linearVelocity = direction * speed;
 
+    }
+
+    private void Flip()
+    {
+        if(rbEnemy.linearVelocityX > 0)
+        {
+            spriteRend.flipX = true;
+        }
+
+        else
+        {
+            spriteRend.flipX = false;
+        }
     }
 
     private void IsDead()
