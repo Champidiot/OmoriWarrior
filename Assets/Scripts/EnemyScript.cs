@@ -18,15 +18,24 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rbEnemy;
 
-    [SerializeField] private HPtext HPtext;
+    private HPtext HPtext;
 
-    [SerializeField] private HPbar HPbar;
+    private HPbar HPbar;
 
     [SerializeField] private SpriteRenderer spriteRend;
 
     public GameObject XpPrefab;
 
     public GameObject Food;
+
+    private void Start()
+    {
+        GameObject joueurObject = GameObject.FindWithTag("joueur");
+        player = joueurObject.transform;
+
+        HPtext = FindFirstObjectByType<HPtext>();
+        HPbar = FindFirstObjectByType<HPbar>();
+    }
 
     void Update()
     {
@@ -77,7 +86,7 @@ public class EnemyScript : MonoBehaviour
             enemy.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             enemy.SetActive(true);
 
-            int IsFood = Random.Range(1, 50);
+            int IsFood = Random.Range(1, 30);
             if (IsFood == 5)
             {
                 var food = Instantiate(Food);

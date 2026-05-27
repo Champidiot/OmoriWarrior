@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class XpOrb : MonoBehaviour
 {
-    [SerializeField] private GameObject Player;
+    private GameObject Player;
 
     public float detectionRadius = 2f;
 
@@ -10,10 +10,17 @@ public class XpOrb : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rbOrb;
 
-    [SerializeField] private XpManager XpManager;
+    private XpManager XpManager;
 
 
+    private void Start()
+    {
+        GameObject joueurObject = GameObject.FindWithTag("joueur");
 
+        Player = joueurObject;
+
+        XpManager = FindFirstObjectByType<XpManager>();
+    }
 
     void Update()
     {

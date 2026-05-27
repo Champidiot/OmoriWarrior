@@ -8,13 +8,23 @@ public class NourritureScript : MonoBehaviour
 
     [SerializeField] private AudioSource Miam;
 
-    [SerializeField] private PlayerScript Player;
+    private PlayerScript Player;
 
     [SerializeField] private SpriteRenderer sprRe;
 
-    [SerializeField] private HPbar Hpbar;
+    private HPbar Hpbar;
 
-    [SerializeField] private HPtext hptext;
+    private HPtext hptext;
+
+    private void Start()
+    {
+        GameObject joueurObject = GameObject.FindWithTag("joueur");
+
+        Player = joueurObject.GetComponent<PlayerScript>();
+
+        Hpbar = FindFirstObjectByType<HPbar>();
+        hptext = FindFirstObjectByType<HPtext>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
