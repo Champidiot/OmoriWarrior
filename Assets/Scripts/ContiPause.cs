@@ -1,10 +1,8 @@
-using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms;
 
-public class ContiPause : MonoBehaviour
+public class ContiPause : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     [SerializeField] private int ElBouton;
 
@@ -16,16 +14,13 @@ public class ContiPause : MonoBehaviour
 
     [SerializeField] private AudioSource ByebyeLaTeam;
 
-    private bool AClick = false;
-
-    private float timer = 0f;
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         Over.Play();
 
         redhandpause.QuelBouton = ElBouton;
     }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -35,6 +30,7 @@ public class ContiPause : MonoBehaviour
                 JaiRienDisMb.Play();
                 MenuPause.SetActive(false);
                 Time.timeScale = 1f;
+                redhandpause.QuelBouton = 0;
                 break;
 
             case 2:
