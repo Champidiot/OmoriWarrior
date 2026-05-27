@@ -77,7 +77,7 @@ public class EnemyScript : MonoBehaviour
             enemy.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             enemy.SetActive(true);
 
-            int IsFood = Random.Range(1, 20);
+            int IsFood = Random.Range(1, 50);
             if (IsFood == 5)
             {
                 var food = Instantiate(Food);
