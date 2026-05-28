@@ -56,12 +56,13 @@ public class EnemySpawnerManager : MonoBehaviour
                 var enemy = Instantiate(Enemy1Prefab);
                 enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
                 enemy.SetActive(true);
-            }
                 timerEnemy = 0f;
+            }
+                
         }
 
 
-        else if (TimerJeu > 60 && TimerJeu < 120)
+        else if (TimerJeu >= 60 && TimerJeu < 120)
         {
             if (timerEnemy >= 0.75)
             {
@@ -69,8 +70,48 @@ public class EnemySpawnerManager : MonoBehaviour
                 var enemy = Instantiate(Enemy2Prefab);
                 enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
                 enemy.SetActive(true);
+                timerEnemy = 0f;
             }
-            timerEnemy = 0f;
+            
+        }
+
+        else if (TimerJeu >= 120 && TimerJeu < 180)
+        {
+            if (timerEnemy >= 0.5)
+            {
+                angle = Random.Range(0f, 2 * Mathf.PI);
+                var enemy = Instantiate(Enemy3Prefab);
+                enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
+                enemy.SetActive(true);
+                timerEnemy = 0f;
+            }
+            
+        }
+
+        else if (TimerJeu >= 180 && TimerJeu < 240)
+        {
+            if (timerEnemy >= 0.4)
+            {
+                angle = Random.Range(0f, 2 * Mathf.PI);
+                var enemy = Instantiate(Enemy4Prefab);
+                enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
+                enemy.SetActive(true);
+                timerEnemy = 0f;
+            }
+            
+        }
+
+        else if (TimerJeu >= 240)
+        {
+            if (timerEnemy >= 0.25)
+            {
+                angle = Random.Range(0f, 2 * Mathf.PI);
+                var enemy = Instantiate(Enemy5Prefab);
+                enemy.transform.position = new Vector3((point.x + (radius * Mathf.Cos(angle))), (point.y + (radius * Mathf.Sin(angle))), 2f);
+                enemy.SetActive(true);
+                timerEnemy = 0f;
+            }
+            
         }
 
 

@@ -35,7 +35,8 @@ public class NourritureScript : MonoBehaviour
             {
                 Miam.Play();
                 Recup = true;
-                Player.HeroHp += Player.HeroMaxHp / 3;
+                float soin = Mathf.RoundToInt(Player.HeroMaxHp / 3);
+                Player.HeroHp += soin;
                 sprRe.enabled = false;
                 Hpbar.HPbarMiseAjour();
                 hptext.HPmiseAjour();

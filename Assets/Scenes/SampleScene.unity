@@ -3684,9 +3684,9 @@ MonoBehaviour:
   timerEnemy: 0
   Enemy1Prefab: {fileID: 1374743448170785364, guid: 60bcab1ce5c262c4db20085a2b190045, type: 3}
   Enemy2Prefab: {fileID: 1374743448170785364, guid: 6348e4131d21eba4e98329740fa9f70b, type: 3}
-  Enemy3Prefab: {fileID: 0}
-  Enemy4Prefab: {fileID: 0}
-  Enemy5Prefab: {fileID: 0}
+  Enemy3Prefab: {fileID: 1374743448170785364, guid: b0ecf7c977dd66542968da6c750a40a5, type: 3}
+  Enemy4Prefab: {fileID: 1374743448170785364, guid: 9ded882e0be12f0429afb958439c4c96, type: 3}
+  Enemy5Prefab: {fileID: 1374743448170785364, guid: 6dd78c2f0d76a0040ad15a4cf46d39c8, type: 3}
   positionJoueur: {fileID: 1076427808}
 --- !u!4 &1618121838
 Transform:
