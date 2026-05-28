@@ -4,14 +4,14 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public Transform player;
-    public float speed = 3f;
+    public float speed;
 
-    public float EnemyHp1 = 10f;
+    public float EnemyHp1;
 
 
     private float nextHeroDamageTime = 0f;
     public float damageHeroCooldown = 0.12f;
-    public float damageToHero = 1f;
+    public float damageToHero;
 
     public float nextDamageTime = 0f;
 

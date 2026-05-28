@@ -8,13 +8,16 @@ public class ZoneDegat : MonoBehaviour
 
     private float intervalDamage = 0.2f;
 
+    public int NiveauAme = 0;
+
+
     private void Update()
     {
         timerDamage += Time.deltaTime;
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
 
         if(timerDamage >= intervalDamage)
@@ -24,20 +27,37 @@ public class ZoneDegat : MonoBehaviour
             {
                 EnemyScript enemy = collision.GetComponent<EnemyScript>();
 
+                    enemy.nextDamageTime += Time.deltaTime;
 
-                if (enemy.nextDamageTime >= 0.13f)
-                {
-                    enemy.EnemyHp1 -= zoneDamage;
-
-                    enemy.nextDamageTime = 0f;
-
-                    timerDamage = 0f;
-                }
-
+                    if (enemy.nextDamageTime >= intervalDamage)
+                    {
+                        enemy.EnemyHp1 -= zoneDamage;
+                        enemy.nextDamageTime = 0f;
+                    }
             }
 
         }
 
         
+    }
+
+    public void Upgrade()
+    {
+        switch (NiveauAme)
+        {
+            case 1:
+                transform.localScale *= 1.5f;
+                zoneDamage += 1;
+
+                break;
+
+            case 2:
+                transform.localScale *= 1.3f;
+                zoneDamage += 1;
+                break;
+        }
+
+
+        NiveauAme += 1;
     }
 }

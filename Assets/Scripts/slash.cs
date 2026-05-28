@@ -7,10 +7,11 @@ public class slash : MonoBehaviour
     private float timer;
     public float dureeActif;
     public float dureeInactif;
-    public float NiveauSlash = 1f;
     private etat etatAttack = etat.inactif;
 
     public float slashDamage = 5f;
+
+    public int NiveauAme = 1;
 
 
     [SerializeField] private SpriteRenderer sprite;
@@ -84,6 +85,23 @@ public class slash : MonoBehaviour
                 enemy.nextDamageTime = 0f;
             }
 
+        }
+    }
+
+    public void Upgrade()
+    {
+        switch (NiveauAme)
+        {
+            case 1:
+                transform.localScale *= 1.5f;
+                slashDamage += 5;
+
+                break;
+
+            case 2:
+                transform.localScale *= 1.3f;
+                slashDamage += 10;
+                break;
         }
     }
 
