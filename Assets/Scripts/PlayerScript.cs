@@ -9,11 +9,17 @@ public class PlayerScript : MonoBehaviour
 
     public float HeroMaxHp = 50f;
 
+    private Animator animator;
+
+
+
 
 
     void Start()
     {
-        HeroHp = HeroMaxHp; 
+        HeroHp = HeroMaxHp;
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,18 +38,28 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction.x += 1f;
+            animator.SetBool("IsMooving", true);
+            
         }
         if (Input.GetKey(KeyCode.A))
         {
             direction.x -= 1f;
+            animator.SetBool("IsMooving", true);
         }
         if (Input.GetKey(KeyCode.S))
         {
             direction.y -= 1f;
+            animator.SetBool("IsMooving", true);
         }
         if (Input.GetKey(KeyCode.W))
         {
             direction.y += 1f;
+            animator.SetBool("IsMooving", true);
+        }
+
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("IsMooving", false);
         }
 
         direction.Normalize();

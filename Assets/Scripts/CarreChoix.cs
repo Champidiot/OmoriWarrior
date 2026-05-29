@@ -48,8 +48,6 @@ public class CarreChoix : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Debug.Log(AmeliorationDonne);
-
         XpManager.GiveAme(AmeliorationDonne);
 
     }

@@ -195,32 +195,27 @@ public class XpManager : MonoBehaviour
 
 
             case 3:
-
                 if (watermelon.NiveauAme == 0)
                 {
                     watermelon.NiveauAme = 1;
                     watermelon.gameObject.SetActive(true);
                 }
-
                 else
                 {
-                    watermelon.NiveauAme += 1; 
-
+                    watermelon.NiveauAme += 1;
 
                     GameObject WaterGo = watermelon.gameObject;
                     GameObject newWaterMelon = Instantiate(WaterGo);
-                    newWaterMelon.SetActive(true);
-
 
                     GameObject[] toutesLesPastèques = GameObject.FindGameObjectsWithTag("WaterMelon");
                     foreach (GameObject go in toutesLesPastèques)
                     {
                         WaterMelon scriptMelon = go.GetComponent<WaterMelon>();
-
                         scriptMelon.NiveauAme = watermelon.NiveauAme;
                         scriptMelon.Upgrade();
-
                     }
+
+                    newWaterMelon.SetActive(true);
                 }
                 break;
 

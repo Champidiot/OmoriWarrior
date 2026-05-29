@@ -22,6 +22,12 @@ public class WaterMelon : MonoBehaviour
     private void Awake()
     {
         echelleOrigine = transform.localScale;
+
+        if (echelleOrigine == Vector3.zero)
+        {
+            echelleOrigine = new Vector3(2.27f, 2.27f, 2.27f);
+        }
+
     }
 
     private void Start()
@@ -109,28 +115,31 @@ public class WaterMelon : MonoBehaviour
         }
     }
 
+ 
+
     public void Upgrade()
     {
-        if (echelleOrigine == Vector3.zero) echelleOrigine = new Vector3(2.27f, 2.27f, 2.27f);
+        Vector3 baseScale = new Vector3(2.27f, 2.27f, 2.27f);
 
         switch (NiveauAme)
         {
-            case 2:
-                transform.localScale = echelleOrigine * 1.5f;
-                melonDamage = 10f;
+            case 1:
+                transform.localScale = baseScale;
+                break;
 
+            case 2:
+                transform.localScale = baseScale * 1.5f;
+                melonDamage = 10f;
                 SpeedMin = 5f;
                 SpeedMax = 7.5f;
                 ActualiserTailleBordures();
                 break;
 
             case 3:
-                transform.localScale = echelleOrigine * 2.3f;
+                transform.localScale = baseScale * 2.3f;
                 melonDamage = 30f;
-
                 SpeedMin = 7.5f;
                 SpeedMax = 10f;
-
                 ActualiserTailleBordures();
                 break;
         }
