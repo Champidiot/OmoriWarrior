@@ -6,6 +6,7 @@ public class EnemySpawnerManager : MonoBehaviour
 {
 
     public static float TimerJeu;
+
     public float timerEnemy;
 
 

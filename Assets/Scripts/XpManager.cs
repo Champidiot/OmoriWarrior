@@ -21,6 +21,8 @@ public class XpManager : MonoBehaviour
 
     [SerializeField] private CarreChoix Choix2;
 
+    [SerializeField] private CarreChoix Choix3;
+
 
 
 
@@ -28,6 +30,14 @@ public class XpManager : MonoBehaviour
     [SerializeField] private slash Slash;
 
     [SerializeField] private ZoneDegat Zone;
+
+    [SerializeField] private WaterMelon watermelon;
+
+    [SerializeField] private PlayerScript Ps;
+
+    [SerializeField] private HPbar hpba;
+
+    [SerializeField] private HPtext hpte;
 
 
 
@@ -46,6 +56,8 @@ public class XpManager : MonoBehaviour
         {
             IsLvlAtteint();
         }
+
+        Debug.Log(Zone.NiveauAme);
     }
 
     private void IsLvlAtteint()
@@ -99,25 +111,38 @@ public class XpManager : MonoBehaviour
         }
 
 
-        int indexAleatoire1 = Random.Range(0, AmeDispo.Count);
-        Choix1.AmeliorationDonne = AmeDispo[indexAleatoire1];
-        AmeDispo.RemoveAt(indexAleatoire1);
+        int AmeDonne1 = Random.Range(0, AmeDispo.Count);
+        Choix1.AmeliorationDonne = AmeDispo[AmeDonne1];
+        AmeDispo.RemoveAt(AmeDonne1);
 
         if (AmeDispo.Count > 0)
         {
-            int indexAleatoire2 = Random.Range(0, AmeDispo.Count);
-            Choix2.AmeliorationDonne = AmeDispo[indexAleatoire2];
+            int AmeDonne2 = Random.Range(0, AmeDispo.Count);
+            Choix2.AmeliorationDonne = AmeDispo[AmeDonne2];
+            AmeDispo.RemoveAt(AmeDonne2);
         }
         else
         {
-            Choix2.gameObject.SetActive(false);
+            Choix2.AmeliorationDonne = 100;
         }
 
-        Debug.Log("Choix 1: " + Choix1.AmeliorationDonne + " | Choix 2: " + Choix2.AmeliorationDonne);
+
+        if (AmeDispo.Count > 0)
+        {
+            int AmeDonne3 = Random.Range(0, AmeDispo.Count);
+            Choix3.AmeliorationDonne = AmeDispo[AmeDonne3];
+        }
+        else
+        {
+            Choix3.AmeliorationDonne = 100;
+        }
+
+        Debug.Log("Choix 1: " + Choix1.AmeliorationDonne + " | Choix 2: " + Choix2.AmeliorationDonne + " | Choix 3: " + Choix3.AmeliorationDonne);
 
 
         Choix1.Affichage(Choix1.AmeliorationDonne);
         Choix2.Affichage(Choix2.AmeliorationDonne);
+        Choix3.Affichage(Choix3.AmeliorationDonne);
     }
 
     private bool AmeLvl(int Ame)
@@ -129,6 +154,10 @@ public class XpManager : MonoBehaviour
 
             case 2:
                 return Zone.NiveauAme < 3;
+
+            case 3:
+                return watermelon.NiveauAme < 3;
+
 
             default:
                 return true;
@@ -145,18 +174,76 @@ public class XpManager : MonoBehaviour
         {
             case 1:
                 Slash.Upgrade();
+                Slash.NiveauAme += 1;
                 break;
 
 
             case 2:
-                if(Zone.NiveauAme == 0)
+                if (Zone.NiveauAme == 0)
                 {
                     GameObject ZoneGo = Zone.gameObject;
                     ZoneGo.SetActive(true);
                 }
 
-                Zone.Upgrade();
+                else 
+                { 
+                    Zone.Upgrade(); 
+                }
+                Zone.NiveauAme += 1;
                 break;
+
+
+
+            case 3:
+
+                if (watermelon.NiveauAme == 0)
+                {
+                    watermelon.NiveauAme = 1;
+                    watermelon.gameObject.SetActive(true);
+                }
+
+                else
+                {
+                    watermelon.NiveauAme += 1; 
+
+
+                    GameObject WaterGo = watermelon.gameObject;
+                    GameObject newWaterMelon = Instantiate(WaterGo);
+                    newWaterMelon.SetActive(true);
+
+
+                    GameObject[] toutesLesPastèques = GameObject.FindGameObjectsWithTag("WaterMelon");
+                    foreach (GameObject go in toutesLesPastèques)
+                    {
+                        WaterMelon scriptMelon = go.GetComponent<WaterMelon>();
+
+                        scriptMelon.NiveauAme = watermelon.NiveauAme;
+                        scriptMelon.Upgrade();
+
+                    }
+                }
+                break;
+
+
+
+
+
+
+
+
+
+
+
+            case 100:
+
+                Ps.HeroMaxHp += 5;
+                Ps.HeroHp += 5;
+
+                hpba.HPbarMiseAjour();
+                hpte.HPmiseAjour();
+
+                break;
+
         }
 
         

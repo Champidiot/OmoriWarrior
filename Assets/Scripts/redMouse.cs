@@ -40,7 +40,5 @@ public class redMouse : MonoBehaviour
 
         }
 
-        Debug.Log(IsOptionActivate);
-
     }
 }

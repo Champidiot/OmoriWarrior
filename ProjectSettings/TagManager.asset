@@ -8,6 +8,8 @@ TagManager:
   - couteau
   - joueur
   - enemy
+  - limiteWater
+  - WaterMelon
   layers:
   - Default
   - TransparentFX

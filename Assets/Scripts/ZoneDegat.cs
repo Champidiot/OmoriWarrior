@@ -57,7 +57,5 @@ public class ZoneDegat : MonoBehaviour
                 break;
         }
 
-
-        NiveauAme += 1;
     }
 }

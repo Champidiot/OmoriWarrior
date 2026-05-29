@@ -22,5 +22,22 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             PauseMenu.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if(Time.timeScale == 1)
+            {
+                Time.timeScale = 5;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            EnemySpawnerManager.TimerJeu += 60;
+        }
     }
 }
