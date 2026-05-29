@@ -35,6 +35,8 @@ public class CarreChoix : MonoBehaviour
 
     [SerializeField] private WaterMelon water;
 
+    [SerializeField] private balleRebond balle;
+
 
 
     private void OnMouseDown()
@@ -72,6 +74,12 @@ public class CarreChoix : MonoBehaviour
                 Titre.text = "Pasteque Lvl " + water.NiveauAme + " -> Lvl " + (water.NiveauAme + 1);
                 Desc.text = "Une pasteque qui frappe les ennemis sur qui elle passe";
                 Comm.text = "“Miam”";
+                break;
+
+            case 4:
+                Titre.text = "Balle Lvl " + balle.NiveauAme + " -> Lvl " + (balle.NiveauAme + 1);
+                Desc.text = "Une balle envoyé à toute vitesse";
+                Comm.text = "“Attention à la tête”";
                 break;
 
 

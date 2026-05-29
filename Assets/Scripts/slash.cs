@@ -95,12 +95,14 @@ public class slash : MonoBehaviour
             case 1:
                 transform.localScale *= 1.5f;
                 slashDamage += 5;
+                dureeInactif = 0.8f;
 
                 break;
 
             case 2:
                 transform.localScale *= 1.3f;
                 slashDamage += 10;
+                dureeInactif = 0.5f;
                 break;
         }
     }

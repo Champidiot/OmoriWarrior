@@ -46,13 +46,13 @@ public class ZoneDegat : MonoBehaviour
         switch (NiveauAme)
         {
             case 1:
-                transform.localScale *= 1.5f;
+                transform.localScale *= 1.8f;
                 zoneDamage += 1;
 
                 break;
 
             case 2:
-                transform.localScale *= 1.3f;
+                transform.localScale *= 1.5f;
                 zoneDamage += 1;
                 break;
         }

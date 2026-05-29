@@ -39,5 +39,11 @@ public class GameManager : MonoBehaviour
         {
             EnemySpawnerManager.TimerJeu += 60;
         }
+
+
+        if (EnemySpawnerManager.TimerJeu > 300)
+        {
+            SceneManager.LoadSceneAsync("Win", LoadSceneMode.Single);
+        }
     }
 }
