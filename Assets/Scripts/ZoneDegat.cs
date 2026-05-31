@@ -32,6 +32,7 @@ public class ZoneDegat : MonoBehaviour
                     if (enemy.nextDamageTime >= intervalDamage)
                     {
                         enemy.EnemyHp1 -= zoneDamage;
+                    enemy.TextDamage((int)zoneDamage);
                         enemy.nextDamageTime = 0f;
                     }
             }

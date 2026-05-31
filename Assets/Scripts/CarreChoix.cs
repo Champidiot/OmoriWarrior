@@ -37,6 +37,8 @@ public class CarreChoix : MonoBehaviour
 
     [SerializeField] private balleRebond balle;
 
+    [SerializeField] private Disque disque;
+
 
 
     private void OnMouseDown()
@@ -51,6 +53,11 @@ public class CarreChoix : MonoBehaviour
         Time.timeScale = 1f;
 
         XpManager.GiveAme(AmeliorationDonne);
+
+        if(disque.NiveauAme == 3)
+        {
+            disque.ChangeMusic();
+        }
 
     }
 
@@ -80,6 +87,12 @@ public class CarreChoix : MonoBehaviour
                 Titre.text = "Balle Lvl " + balle.NiveauAme + " -> Lvl " + (balle.NiveauAme + 1);
                 Desc.text = "Une balle envoyé à toute vitesse";
                 Comm.text = "“Attention à la tête”";
+                break;
+
+            case 5:
+                Titre.text = "Disque Inutile";
+                Desc.text = "Change la musique en gagnant un niveau";
+                Comm.text = "“Ne sert à rien. La musique est bonne.”";
                 break;
 
 

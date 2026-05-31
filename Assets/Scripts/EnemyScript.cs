@@ -28,6 +28,10 @@ public class EnemyScript : MonoBehaviour
 
     public GameObject Food;
 
+    [SerializeField] private GameObject damageTextPrefab;
+
+    [SerializeField] private float hauteurTextDegat;
+
     private void Start()
     {
         GameObject joueurObject = GameObject.FindWithTag("joueur");
@@ -119,4 +123,15 @@ public class EnemyScript : MonoBehaviour
 
     }
 
+    public void TextDamage(int damage)
+    {
+
+        GameObject instanceTexte = Instantiate(damageTextPrefab, transform.position + new Vector3(0f, hauteurTextDegat, 0f), Quaternion.identity);
+
+        TextDegat scriptTexte = instanceTexte.GetComponent<TextDegat>();
+
+        scriptTexte.Configurer(damage);
+    }
+
 }
+

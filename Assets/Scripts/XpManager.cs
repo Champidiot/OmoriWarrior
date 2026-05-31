@@ -9,7 +9,7 @@ public class XpManager : MonoBehaviour
 
     public float XpObtenu;
 
-    private int NombreChoix = 4;
+    private int NombreChoix = 5;
 
     [SerializeField] private GameObject ChoixFeunetre;
 
@@ -36,6 +36,9 @@ public class XpManager : MonoBehaviour
     [SerializeField] private WaterMelon watermelon;
 
     [SerializeField] private balleRebond balle;
+
+    [SerializeField] private Disque disque;
+
 
     [SerializeField] private PlayerScript Ps;
 
@@ -167,8 +170,12 @@ public class XpManager : MonoBehaviour
 
             case 3:
                 return watermelon.NiveauAme < 3;
+
             case 4:
                 return balle.NiveauAme < 3;
+
+            case 5:
+                return disque.NiveauAme < 3;
 
 
             default:
@@ -235,6 +242,10 @@ public class XpManager : MonoBehaviour
             case 4:
                 balle.Upgrade();
                 balle.NiveauAme += 1;
+                break;
+
+            case 5:
+                disque.NiveauAme = 3;
                 break;
 
 

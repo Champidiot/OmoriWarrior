@@ -82,6 +82,8 @@ public class slash : MonoBehaviour
             {
                 enemy.EnemyHp1 -= slashDamage;
 
+                enemy.TextDamage((int)slashDamage);
+
                 enemy.nextDamageTime = 0f;
             }
 

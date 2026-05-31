@@ -103,6 +103,7 @@ public class balle : MonoBehaviour
             if (enemy.nextDamageTime >= 0.13f)
             {
                 enemy.EnemyHp1 -= balleDamage;
+                enemy.TextDamage((int)balleDamage);
                 enemy.nextDamageTime = 0f;
             }
         }

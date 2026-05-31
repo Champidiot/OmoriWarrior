@@ -85,6 +85,7 @@ public class WaterMelon : MonoBehaviour
             if (enemy.nextDamageTime >= 0.13f)
             {
                 enemy.EnemyHp1 -= melonDamage;
+                enemy.TextDamage((int)melonDamage);
                 enemy.nextDamageTime = 0f;
             }
             int axeAInverser = Random.Range(1, 3);

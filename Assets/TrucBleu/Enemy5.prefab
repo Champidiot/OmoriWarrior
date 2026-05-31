@@ -180,3 +180,5 @@ MonoBehaviour:
   spriteRend: {fileID: 583883142754059394}
   XpPrefab: {fileID: 6367247306598076942, guid: fb636cfd0beff294c9217f7c2eaa87e0, type: 3}
   Food: {fileID: 451539569506603959, guid: d16944169e0843146818399e9e837690, type: 3}
+  damageTextPrefab: {fileID: 127299595588852345, guid: 7b1e2f6c5140fea4290e9b9c23ea186b, type: 3}
+  hauteurTextDegat: 0.1
