@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarreChoix : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class CarreChoix : MonoBehaviour
 
 
 
-    [SerializeField] private SpriteRenderer Image;
+    [SerializeField] private Image Image;
 
     [SerializeField] private TextMeshProUGUI Titre;
 
@@ -38,6 +39,19 @@ public class CarreChoix : MonoBehaviour
     [SerializeField] private balleRebond balle;
 
     [SerializeField] private Disque disque;
+
+
+    [SerializeField] private Sprite couteau;
+
+    [SerializeField] private Sprite melon;
+
+    [SerializeField] private Sprite volley;
+
+    [SerializeField] private Sprite hand;
+
+    [SerializeField] private Sprite ecouteur;
+
+    [SerializeField] private Sprite life;
 
 
 
@@ -69,30 +83,35 @@ public class CarreChoix : MonoBehaviour
                 Titre.text = "Couteau Lvl " + slash.NiveauAme + " -> Lvl " + (slash.NiveauAme+1);
                 Desc.text = "Attaque de base. Frappe devant soit";
                 Comm.text = "“Attention, ça coupe !”";
+                Image.sprite = couteau;
                 break;
 
             case 2:
                 Titre.text = "Main Rouge Lvl " + zone.NiveauAme + " -> Lvl " + (zone.NiveauAme + 1);
                 Desc.text = "Cree une zone autour de sois qui attaque les ennemis en continu.";
                 Comm.text = "“Mais elles viennent d'où ces mains ?”";
+                Image.sprite = hand;
                 break;
 
             case 3:
                 Titre.text = "Pasteque Lvl " + water.NiveauAme + " -> Lvl " + (water.NiveauAme + 1);
                 Desc.text = "Une pasteque qui frappe les ennemis sur qui elle passe";
                 Comm.text = "“Miam”";
+                Image.sprite = melon;
                 break;
 
             case 4:
                 Titre.text = "Balle Lvl " + balle.NiveauAme + " -> Lvl " + (balle.NiveauAme + 1);
                 Desc.text = "Une balle envoyé à toute vitesse";
                 Comm.text = "“Attention à la tête”";
+                Image.sprite = volley;
                 break;
 
             case 5:
-                Titre.text = "Disque Inutile";
+                Titre.text = "Casque Inutile";
                 Desc.text = "Change la musique en gagnant un niveau";
                 Comm.text = "“Ne sert à rien. La musique est bonne.”";
+                Image.sprite = ecouteur;
                 break;
 
 
@@ -104,6 +123,8 @@ public class CarreChoix : MonoBehaviour
                 Titre.text = "Vie Supplementaire";
                 Desc.text = "Augmente la vie maximum";
                 Comm.text = "“...”";
+                Image.sprite = life;
+
                 break;
         }
     }

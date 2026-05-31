@@ -11,6 +11,7 @@ public class TextDegat : MonoBehaviour
     {
         text = GetComponent<TextMeshPro>();
         text.text = pointsDeDegat.ToString();
+        text.fontSize = 7f + ((pointsDeDegat/10)*2);
 
         Destroy(gameObject, tempsDeVie);
     }
